@@ -6,12 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import practiceA.BusinessCardManagerDao.domain.Card;
 import practiceA.BusinessCardManagerDao.resopitory.CardRepository;
 import practiceA.BusinessCardManagerDao.service.CardService;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
@@ -25,11 +27,17 @@ public class CardController {
     }
 
     @PostMapping("/card/new")
-    public String saveCard(@Valid Card card, BindingResult rs) {
+    public String saveCard(@Valid Card card, BindingResult rs, Model model) {
         if(rs.hasErrors()) {
             return "/card/cardForm";
         }
-        cardService.save(card);
+        try {
+            cardService.save(card);
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("msg", "동일한 회원이 존재합니다");
+            return "/card/cardForm";
+        }
         return "main";
     }
 

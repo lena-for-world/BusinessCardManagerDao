@@ -64,6 +64,23 @@ public class SpringJDBCRepository implements CardRepository {
     } // findbyname으로 수정
 
     @Override
+    public boolean checkByName(String name) {
+        List<Card> list = this.jdbcTemplate.query("select * from card where name = ?",
+                new Object[]{name},
+                new RowMapper<Card>() {
+                    @Override
+                    public Card mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        Card card = new Card();
+                        card.setName(rs.getString("name"));
+                        card.setPhone(rs.getString("phone"));
+                        card.setCompany(rs.getString("company"));
+                        return card;
+                    }
+                });
+        return list.size() != 0;
+    }
+
+    @Override
     public boolean deleteCard(Integer id) {
         int result = this.jdbcTemplate.update("delete from card where id = ?", Integer.valueOf(id));
         return result == 1;

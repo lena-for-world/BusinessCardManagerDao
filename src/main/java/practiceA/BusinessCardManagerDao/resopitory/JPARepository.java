@@ -22,6 +22,11 @@ public class JPARepository implements CardRepository {
     }
 
     @Override
+    public boolean checkByName(String name) {
+        return false;
+    }
+
+    @Override
     public boolean deleteCard(Integer id) {
         return 0 == 0;
     }

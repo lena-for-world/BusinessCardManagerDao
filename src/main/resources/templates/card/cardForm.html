@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -13,12 +13,15 @@
             <label for="name">이름</label>
             <input type="text" id="name" name="name" required placeholder ="ex : hamging">
             <label for="phoneNum">번호</label>
-            <input type="text" id="phoneNum" required placeholder="ex : 01000000000">
+            <input type="text" id="phoneNum" name="phone" required placeholder="ex : 01000000000">
             <label for="company">회사</label>
             <input type="text" id="company" name="company" required placeholder="ex : 네이버">
+            <input type="submit" value="저장">
         </div>
-        <input type="submit" value="저장">
     </form>
 </div>
 </body>
-</html>
+<ul>
+    <p th:if="${msg}">동일한 회원이 이미 존재합니다</p>
+</ul>
+<html>
