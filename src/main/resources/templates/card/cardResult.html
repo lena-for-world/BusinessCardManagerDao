@@ -6,10 +6,16 @@
 </head>
 <body>
 <h2>검색이 완료되었어요~~</h2>
-<tr th:each="result: ${results}">
-    <td th:text="${result.getName()}">
-    <td th:text="${result.getPhone()}">
-    <td th:text="${result.getCompany()}">
+<form id="send_id" action="/card/delete" method="get"></form>
+    <tr th:if="${results.size() != 0}" th:each="result: ${results}">
+        <td th:text="${result.getName()}"></td>
+        <td th:text="${result.getPhone()}"></td>
+        <td th:text="${result.getCompany()}"></td>
+        <button type="submit" form="send_id" name="id" th:value="${result.getId()}" style="display: inline">삭제</button><br>
+    </tr>
+</form>
+<tr th:if="${results.size() == 0}">
+    <h3>출력할 명함이 없어요</h3>
 </tr>
 </thead>
 </body>

@@ -51,4 +51,10 @@ public class CardController {
         return "card/cardResult";
     }
 
+    @GetMapping("/card/delete")
+    public String delete(Integer id) {
+        cardService.deleteCard(id);
+        return "card/searchCard";
+    }
+
 }

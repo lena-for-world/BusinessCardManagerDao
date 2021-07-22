@@ -30,4 +30,8 @@ public class CardService {
         List<Card> list = cardRepository.findByName(name);
         return list;
     }
+
+    public boolean deleteCard(Integer id) {
+        return cardRepository.deleteCard(id);
+    }
 }

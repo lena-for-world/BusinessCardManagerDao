@@ -8,5 +8,5 @@ public interface CardRepository {
     public void add(Card card);
     public List<Card> findAll();
     public List<Card> findByName(String name);
-    public void deleteCard(int id);
+    public boolean deleteCard(Integer id);
 }

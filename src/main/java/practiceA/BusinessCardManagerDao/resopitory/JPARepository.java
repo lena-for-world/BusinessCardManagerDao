@@ -22,7 +22,7 @@ public class JPARepository implements CardRepository {
     }
 
     @Override
-    public void deleteCard(int id) {
-
+    public boolean deleteCard(Integer id) {
+        return 0 == 0;
     }
 }

@@ -62,4 +62,22 @@ public class JdbcTemplateCardTest {
         assertThat("Hamging22").isEqualTo(cards.get(0).getName());
         System.out.println("Hamging22? = " + cards.get(0).getName());
     }
+
+    @Test
+    @DisplayName("jdbc template delete test")
+    public void deleteById() {
+        // given
+        Card card = new Card();
+        card.setName("Hamging");
+        card.setPhone("01012345678"); card.setCompany("samsung");
+
+        // when
+        cardRepository.add(card);
+        System.out.println("db size = " + cardRepository.findAll().size());
+        System.out.println("card.getId() + card.getName() = " + card.getId() + card.getName());
+        cardRepository.deleteCard(card.getId());
+
+        //then
+        System.out.println("db size = " + cardRepository.findAll().size());
+    }
 }

@@ -2,12 +2,12 @@ package practiceA.BusinessCardManagerDao.domain;
 
 public class Card {
 
-    private int id;
+    private Integer id;
     private String name;
     private String phone;
     private String company;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -23,7 +23,7 @@ public class Card {
         return company;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

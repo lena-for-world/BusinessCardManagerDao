@@ -64,7 +64,8 @@ public class SpringJDBCRepository implements CardRepository {
     } // findbyname으로 수정
 
     @Override
-    public void deleteCard(int id) {
-
+    public boolean deleteCard(Integer id) {
+        int result = this.jdbcTemplate.update("delete from card where id = ?", Integer.valueOf(id));
+        return result == 1;
     }
 }
