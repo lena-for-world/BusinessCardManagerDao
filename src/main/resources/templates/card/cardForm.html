@@ -11,11 +11,11 @@
     <form action="/card/new" method="post">
         <div class="form-group">
             <label for="name">이름</label>
-            <input type="text" id="name" name="name" placeholder ="ex : hamging">
+            <input type="text" id="name" name="name" required placeholder ="ex : hamging">
             <label for="phoneNum">번호</label>
-            <input type="text" id="phoneNum" name="phone" placeholder="ex : 01000000000">
+            <input type="text" id="phoneNum" required placeholder="ex : 01000000000">
             <label for="company">회사</label>
-            <input type="text" id="company" name="company" placeholder="ex : 네이버">
+            <input type="text" id="company" name="company" required placeholder="ex : 네이버">
         </div>
         <input type="submit" value="저장">
     </form>

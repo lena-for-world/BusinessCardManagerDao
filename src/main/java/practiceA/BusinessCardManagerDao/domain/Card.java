@@ -1,9 +1,12 @@
 package practiceA.BusinessCardManagerDao.domain;
 
+import javax.validation.constraints.Size;
+
 public class Card {
 
     private Integer id;
     private String name;
+    @Size(min=11, max=11, message="번호는 11글자여야 합니다!")
     private String phone;
     private String company;
 
