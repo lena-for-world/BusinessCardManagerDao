@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>검색화면</h2>
+<button onclick="location.href='/card/search/AllCards'">전체검색</button>
+<form action="/card/search/oneCard" method="get">
+    <label id="name"></label>
+    <input type="text" name="name" placeholder="검색할 이름을 입력하세요">
+    <button type="submit">이름검색</button>
+</form>
+</body>
+</html>

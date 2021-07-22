@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>검색이 완료되었어요~~</h2>
+<tr th:each="result: ${results}">
+    <td th:text="${result.getName()}">
+    <td th:text="${result.getPhone()}">
+    <td th:text="${result.getCompany()}">
+</tr>
+</thead>
+</body>
+</html>
