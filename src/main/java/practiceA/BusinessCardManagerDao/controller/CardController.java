@@ -25,8 +25,8 @@ public class CardController {
     }
 
     @PostMapping("/card/new")
-    public String saveCard(@Valid Card card, BindingResult result) {
-        if(result.hasErrors()) {
+    public String saveCard(@Valid Card card, BindingResult rs) {
+        if(rs.hasErrors()) {
             return "/card/cardForm";
         }
         cardService.save(card);
