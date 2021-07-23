@@ -1,24 +1,25 @@
 package practiceA.BusinessCardManagerDao.repository;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
 import practiceA.BusinessCardManagerDao.domain.Card;
 
 import javax.sql.DataSource;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class SpringJDBCRepository implements CardRepository {
+public class SpringJdbcRepository implements CardRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public SpringJDBCRepository(DataSource dataSource) {
-        jdbcTemplate = new JdbcTemplate(dataSource); // ?? how works
+    public SpringJdbcRepository(DataSource dataSource) {
+        jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     @Override

@@ -1,7 +1,9 @@
 package practiceA.BusinessCardManagerDao.service;
 
 import lombok.AllArgsConstructor;
+
 import org.springframework.stereotype.Service;
+
 import practiceA.BusinessCardManagerDao.domain.Card;
 import practiceA.BusinessCardManagerDao.repository.CardRepository;
 
