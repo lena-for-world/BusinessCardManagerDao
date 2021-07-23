@@ -3,11 +3,9 @@ package practiceA.BusinessCardManagerDao.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import practiceA.BusinessCardManagerDao.domain.Card;
-import practiceA.BusinessCardManagerDao.resopitory.CardRepository;
+import practiceA.BusinessCardManagerDao.repository.CardRepository;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor

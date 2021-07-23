@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 import practiceA.BusinessCardManagerDao.domain.Card;
-import practiceA.BusinessCardManagerDao.resopitory.CardRepository;
+import practiceA.BusinessCardManagerDao.repository.CardRepository;
 import practiceA.BusinessCardManagerDao.service.CardService;
 
 import javax.persistence.EntityManager;

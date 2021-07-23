@@ -1,9 +1,8 @@
-package practiceA.BusinessCardManagerDao.resopitory;
+package practiceA.BusinessCardManagerDao.repository;
 
 import practiceA.BusinessCardManagerDao.domain.Card;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CardRepository {
     public void add(Card card);

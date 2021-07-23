@@ -4,14 +4,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 import practiceA.BusinessCardManagerDao.domain.Card;
-import practiceA.BusinessCardManagerDao.resopitory.CardRepository;
-import practiceA.BusinessCardManagerDao.resopitory.SpringJDBCRepository;
+import practiceA.BusinessCardManagerDao.repository.CardRepository;
 
 import javax.sql.DataSource;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
@@ -68,6 +65,7 @@ public class JdbcTemplateCardTest {
     public void deleteById() {
         // given
         Card card = new Card();
+        card.setId(1);
         card.setName("Hamging");
         card.setPhone("01012345678"); card.setCompany("samsung");
 
@@ -79,5 +77,6 @@ public class JdbcTemplateCardTest {
 
         //then
         System.out.println("db size = " + cardRepository.findAll().size());
+        System.out.println(cardRepository.findByName(card.getName()).size());
     }
 }
