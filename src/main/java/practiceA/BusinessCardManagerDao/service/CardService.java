@@ -23,7 +23,7 @@ public class CardService {
     }
 
     private void validateDuplicateCard(Card card) {
-        if(cardRepository.checkByName(card.getName()) == true) throw new IllegalStateException("동일한 회원이 이미 존재합니다");
+        if(cardRepository.findByName(card.getName()).size() > 0) throw new IllegalStateException("동일한 회원이 이미 존재합니다");
     }
 
     public List<Card> findCards() {
@@ -37,7 +37,7 @@ public class CardService {
         return list;
     }
 
-    public boolean deleteCard(Integer id) {
-        return cardRepository.deleteCard(id);
+    public void deleteCard(Integer id) {
+        cardRepository.deleteCard(id);
     }
 }

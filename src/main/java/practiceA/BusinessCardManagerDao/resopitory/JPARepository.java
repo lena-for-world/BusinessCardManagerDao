@@ -1,33 +1,43 @@
 package practiceA.BusinessCardManagerDao.resopitory;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import practiceA.BusinessCardManagerDao.domain.Card;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.util.List;
 
+@Repository
+@Transactional
+@RequiredArgsConstructor
 public class JPARepository implements CardRepository {
+
+    private final EntityManager em;
+
     @Override
     public void add(Card card) {
-
+        em.persist(card);
     }
 
     @Override
     public List<Card> findAll() {
-        return null;
+        return em.createQuery("select c from Card c", Card.class)
+                .getResultList();
     }
 
     @Override
     public List<Card> findByName(String name) {
-        return null;
+        return em.createQuery("select c from Card c where c.name = :name", Card.class)
+                .setParameter("name", name)
+                .getResultList();
     }
 
     @Override
-    public boolean checkByName(String name) {
-        return false;
-    }
-
-    @Override
-    public boolean deleteCard(Integer id) {
-        return 0 == 0;
+    public void deleteCard(Integer id) {
+        em.createQuery("delete from Card c where c.id= :id")
+                .setParameter("id", id)
+                .executeUpdate();
     }
 }
