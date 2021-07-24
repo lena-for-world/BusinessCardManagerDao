@@ -5,5 +5,6 @@ create table card
     name         varchar(255),
     phone varchar(255),
     company      varchar(255),
-    primary key (id)
+    primary key (id),
+    unique key card_name_UNIQUE (name)
 );

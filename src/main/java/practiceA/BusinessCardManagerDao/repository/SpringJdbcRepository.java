@@ -1,5 +1,6 @@
 package practiceA.BusinessCardManagerDao.repository;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -13,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Primary
 @Repository
 public class SpringJdbcRepository implements CardRepository {
 

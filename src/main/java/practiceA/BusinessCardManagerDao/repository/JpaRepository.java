@@ -12,7 +12,6 @@ import javax.persistence.EntityManager;
 
 import java.util.List;
 
-@Primary
 @Repository
 @Transactional
 @RequiredArgsConstructor
