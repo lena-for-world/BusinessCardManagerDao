@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Primary
 @Repository
 public class SpringJdbcRepository implements CardRepository {
 
@@ -55,6 +56,7 @@ public class SpringJdbcRepository implements CardRepository {
                     @Override
                     public Card mapRow(ResultSet rs, int rowNum) throws SQLException {
                         Card card = new Card();
+                        card.setId(rs.getInt("id"));
                         card.setName(rs.getString("name"));
                         card.setPhone(rs.getString("phone"));
                         card.setCompany(rs.getString("company"));
@@ -65,6 +67,6 @@ public class SpringJdbcRepository implements CardRepository {
     } // findbyname으로 수정
 
     public void deleteCard(Integer id) {
-        this.jdbcTemplate.update("delete from card where id = ?", Integer.valueOf(id));
+        this.jdbcTemplate.update("delete from card where id = ?", id);
     }
 }
