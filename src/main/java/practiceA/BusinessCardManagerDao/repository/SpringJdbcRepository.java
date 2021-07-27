@@ -14,7 +14,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Primary
 @Repository
 public class SpringJdbcRepository implements CardRepository {
 
@@ -50,8 +49,8 @@ public class SpringJdbcRepository implements CardRepository {
 
     @Override
     public List<Card> findByName(String name) {
-        List<Card> list = this.jdbcTemplate.query("select * from card where name = ?",
-                new Object[] {name},
+        List<Card> list = this.jdbcTemplate.query("select * from card where name like ?",
+                new Object[] {"%" + name + "%"},
                 new RowMapper<Card>() {
                     @Override
                     public Card mapRow(ResultSet rs, int rowNum) throws SQLException {

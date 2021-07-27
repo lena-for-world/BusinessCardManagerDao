@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 
 import java.util.List;
 
+@Primary
 @Repository
 @Transactional
 @RequiredArgsConstructor
@@ -27,20 +28,20 @@ public class JpaRepository implements CardRepository {
     @Override
     public List<Card> findAll() {
         return em.createQuery("select c from Card c", Card.class)
-                .getResultList();
+            .getResultList();
     }
 
     @Override
     public List<Card> findByName(String name) {
-        return em.createQuery("select c from Card c where c.name = :name", Card.class)
-                .setParameter("name", name)
-                .getResultList();
+        return em.createQuery("select c from Card c where c.name like :name")
+            .setParameter("name", "%" +name + "%")
+            .getResultList();
     }
 
     @Override
     public void deleteCard(Integer id) {
         em.createQuery("delete from Card c where c.id= :id")
-                .setParameter("id", id)
-                .executeUpdate();
+            .setParameter("id", id)
+            .executeUpdate();
     }
 }
